@@ -14,10 +14,8 @@ from .forms import SignUpForm
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 
-key="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"
-key2="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"
-
-openai.api_key = key2
+key=""
+openai.api_key = key
 
 
 
@@ -76,8 +74,8 @@ class SignUp(CreateView):
         return reverse("main")
 
 
-@login_required
-def DeleteHistory(request):
-    chatGptobjs = ChatGptBot.objects.filter(user = request.user)
-    chatGptobjs.delete()
-    return redirect(request.META['HTTP_REFERER'])
+# @login_required
+# def DeleteHistory(request):
+#     chatGptobjs = ChatGptBot.objects.filter(user = request.user)
+#     chatGptobjs.delete()
+#     return redirect(request.META['HTTP_REFERER'])
